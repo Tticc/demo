@@ -1,0 +1,535 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.demo.wenc</groupId>
+    <artifactId>demo</artifactId>
+    <packaging>pom</packaging>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>demo</name>
+    <description>Demo project for Spring Boot</description>
+
+    <modules>
+        <module>agent</module>
+    </modules>
+
+
+
+
+    <properties>
+        <java.version>1.8</java.version>
+        <spring.version>2.1.8.RELEASE</spring.version>
+        <!--        <spring.version>2.3.12.RELEASE</spring.version>-->
+        <spring-cloud.version>Greenwich.RELEASE</spring-cloud.version>
+        <spring-cloud-alibaba.version>2.1.0.RELEASE</spring-cloud-alibaba.version>
+        <!--        <spring-cloud-alibaba.version>2.2.7.RELEASE</spring-cloud-alibaba.version>-->
+        <lombok.version>1.18.10</lombok.version>
+        <log.version>1.2</log.version>
+        <junit.version>4.11</junit.version>
+        <aspectj.version>1.9.4</aspectj.version>
+        <lang3.version>3.7</lang3.version>
+        <reactor.version>3.2.12.RELEASE</reactor.version>
+        <codec.version>1.13</codec.version>
+        <PKCS7.version>1.46</PKCS7.version>
+        <mysql.version>8.0.16</mysql.version>
+        <mybatis.version>2.1.1</mybatis.version>
+        <jpa.version>1.0</jpa.version>
+        <datasource.version>3.3.1</datasource.version>
+        <persistence.version>1.0.2</persistence.version>
+        <fastjson.version>1.2.60</fastjson.version>
+        <tkmybatis.version>2.1.5</tkmybatis.version>
+        <mockito.version>1.10.19</mockito.version>
+        <netty.version>4.1.39.Final</netty.version>
+        <httpclient.version>4.5.8</httpclient.version>
+        <swagger.version>2.9.2</swagger.version>
+        <poi.version>4.1.0</poi.version>
+        <shardingsphere.version>4.0.0-RC2</shardingsphere.version>
+        <pagehelper.version>5.1.10</pagehelper.version>
+        <fileupload.version>1.4</fileupload.version>
+        <commonsio.version>2.6</commonsio.version>
+        <jwt.version>0.9.0</jwt.version>
+        <commons-pool2.version>2.7.0</commons-pool2.version>
+        <xxl-job.version>2.1.1</xxl-job.version>
+        <cglib.version>3.3.0</cglib.version>
+
+        <!-- rocketmq -->
+        <rocketmq.vresion>4.5.1</rocketmq.vresion>
+        <rocketmq-spring-boot-starter.version>2.0.3</rocketmq-spring-boot-starter.version>
+
+
+        <sentinel-datasource-nacos.version>1.7.1</sentinel-datasource-nacos.version>
+
+
+
+        <!--maven build-->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.release.version>2.4.1</maven.release.version>
+        <maven.compiler.version>3.1</maven.compiler.version>
+        <maven.install.version>2.4</maven.install.version>
+        <maven.deploy.version>2.7</maven.deploy.version>
+        <maven.sourcce.version>2.2.1</maven.sourcce.version>
+        <maven-surefire-plugin>2.22.1</maven-surefire-plugin>
+
+    </properties>
+
+
+
+    <dependencyManagement>
+        <dependencies>
+
+            <!--dependencies-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!--spring-cloud-->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!--spring-cloud alibaba-->
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${spring-cloud-alibaba.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.csp</groupId>
+                <artifactId>sentinel-datasource-nacos</artifactId>
+                <version>${sentinel-datasource-nacos.version}</version>
+            </dependency>
+
+
+            <!--web-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-web</artifactId>
+                <version>${spring.version}</version>
+                <!--                在common包中exclude-->
+                <!--                <exclusions>-->
+                <!--                    <exclusion>-->
+                <!--                        <groupId>org.springframework.boot</groupId>-->
+                <!--                        <artifactId>spring-boot-starter-tomcat</artifactId>-->
+                <!--                    </exclusion>-->
+                <!--                </exclusions>-->
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-undertow</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <!--web-->
+
+            <!--            <dependency>-->
+            <!--                <groupId>org.springframework.boot</groupId>-->
+            <!--                <artifactId>spring-boot-starter</artifactId>-->
+            <!--                <version>${spring.version}</version>-->
+            <!--            </dependency>-->
+            <!--            &lt;!&ndash; web &ndash;&gt;-->
+            <!--            <dependency>-->
+            <!--                <groupId>org.springframework.boot</groupId>-->
+            <!--                <artifactId>spring-boot-starter-web</artifactId>-->
+            <!--                <version>${spring.version}</version>-->
+            <!--            </dependency>-->
+            <!-- web -->
+            <!--redis-->
+            <!--            <dependency>-->
+            <!--                <groupId>org.springframework.boot</groupId>-->
+            <!--                <artifactId>spring-boot-starter-data-redis</artifactId>-->
+            <!--                <version>${spring.version}</version>-->
+            <!--            </dependency>-->
+            <!--redis-->
+            <!-- webflux -->
+            <!--            <dependency>-->
+            <!--                <groupId>org.springframework.boot</groupId>-->
+            <!--                <artifactId>spring-boot-starter-webflux</artifactId>-->
+            <!--                <version>${spring.version}</version>-->
+            <!--            </dependency>-->
+            <!-- webflux -->
+            <!--thymeleaf-->
+            <!--            <dependency>-->
+            <!--                <groupId>org.springframework.boot</groupId>-->
+            <!--                <artifactId>spring-boot-starter-thymeleaf</artifactId>-->
+            <!--                <version>${spring.version}</version>-->
+            <!--            </dependency>-->
+            <!--thymeleaf-->
+
+
+            <!--rocket mq-->
+            <dependency>
+                <groupId>org.apache.rocketmq</groupId>
+                <artifactId>rocketmq-spring-boot-parent</artifactId>
+                <version>${rocketmq-spring-boot-starter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.rocketmq</groupId>
+                <artifactId>rocketmq-client</artifactId>
+                <version>${rocketmq.vresion}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.slf4j</groupId>
+                        <artifactId>slf4j-api</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.rocketmq</groupId>
+                <artifactId>rocketmq-acl</artifactId>
+                <version>${rocketmq.vresion}</version>
+            </dependency>
+            <!--rocket mq-->
+
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-pool2</artifactId>
+                <version>${commons-pool2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.projectreactor</groupId>
+                <artifactId>reactor-core</artifactId>
+                <version>${reactor.version}</version>
+            </dependency>
+
+            <!-- shardingsphere -->
+            <dependency>
+                <groupId>org.apache.shardingsphere</groupId>
+                <artifactId>sharding-jdbc-core</artifactId>
+                <version>${shardingsphere.version}</version>
+            </dependency>
+            <!-- shardingsphere -->
+
+            <!--pagehelper-->
+            <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper</artifactId>
+                <version>${pagehelper.version}</version>
+            </dependency>
+            <!--pagehelper-->
+
+            <dependency>
+                <groupId>commons-logging</groupId>
+                <artifactId>commons-logging</artifactId>
+                <version>${log.version}</version>
+            </dependency>
+
+            <!--aop-->
+            <dependency>
+                <groupId>org.aspectj</groupId>
+                <artifactId>aspectjrt</artifactId>
+                <version>${aspectj.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.aspectj</groupId>
+                <artifactId>aspectjweaver</artifactId>
+                <version>${aspectj.version}</version>
+            </dependency>
+            <!--aop-->
+            <!--mysql-->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${mybatis.version}</version>
+            </dependency>
+            <!--mysql-->
+
+            <!--jpa-->
+            <dependency>
+                <groupId>javax.persistence</groupId>
+                <artifactId>persistence-api</artifactId>
+                <version>${jpa.version}</version>
+            </dependency>
+            <!--jpa-->
+
+            <!--netty-->
+            <dependency>
+                <groupId>io.netty</groupId>
+                <artifactId>netty-all</artifactId>
+                <version>${netty.version}</version>
+            </dependency>
+            <!--netty-->
+
+
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpclient</artifactId>
+                <version>${httpclient.version}</version>
+            </dependency>
+
+            <!--dubbo-->
+            <!-- https://mvnrepository.com/artifact/org.apache.dubbo/dubbo-spring-boot-starter -->
+            <!--            <dependency>-->
+            <!--                <groupId>org.apache.dubbo</groupId>-->
+            <!--                <artifactId>dubbo-spring-boot-starter</artifactId>-->
+            <!--                <version>2.7.6</version>-->
+            <!--            </dependency>-->
+
+            <!--dubbo-->
+
+            <!--json-->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+            <!--json-->
+
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${lang3.version}</version>
+            </dependency>
+            <!--加密-->
+            <dependency>
+                <groupId>commons-codec</groupId>
+                <artifactId>commons-codec</artifactId>
+                <version>${codec.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.bouncycastle</groupId>
+                <artifactId>bcprov-jdk16</artifactId>
+                <version>${PKCS7.version}</version>
+            </dependency>
+            <!--加密-->
+
+            <!--jwt-->
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt</artifactId>
+                <version>${jwt.version}</version>
+            </dependency>
+
+            <!-- poi -->
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi</artifactId>
+                <version>${poi.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi-ooxml</artifactId>
+                <version>${poi.version}</version>
+            </dependency>
+            <!-- poi -->
+
+            <!--file-->
+            <dependency>
+                <groupId>commons-fileupload</groupId>
+                <artifactId>commons-fileupload</artifactId>
+                <version>${fileupload.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>${commonsio.version}</version>
+            </dependency>
+            <!--file-->
+
+
+            <!--cv and capture-->
+            <!--本地jar包导入，其他地方可能不可用-->
+            <!-- https://mvnrepository.com/artifact/com.github.sarxos/webcam-capture -->
+            <dependency>
+                <groupId>com.github.sarxos</groupId>
+                <artifactId>webcam-capture</artifactId>
+                <version>0.3.12</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/org.bytedeco/javacv -->
+            <dependency>
+                <groupId>org.bytedeco</groupId>
+                <artifactId>javacv-platform</artifactId>
+                <version>1.5</version>
+            </dependency>
+            <!--本地jar包导入，其他地方可能不可用-->
+
+            <!-- https://mvnrepository.com/artifact/com.nativelibs4java/bridj -->
+            <dependency>
+                <groupId>com.nativelibs4java</groupId>
+                <artifactId>bridj</artifactId>
+                <version>0.7.0</version>
+            </dependency>
+            <!--cv and capture-->
+
+            <!--xxlJob-->
+            <dependency>
+                <groupId>com.xuxueli</groupId>
+                <artifactId>xxl-job-core</artifactId>
+                <version>${xxl-job.version}</version>
+            </dependency>
+            <!--xxlJob-->
+
+
+            <!-- https://mvnrepository.com/artifact/cglib/cglib -->
+            <dependency>
+                <groupId>cglib</groupId>
+                <artifactId>cglib</artifactId>
+                <version>${cglib.version}</version>
+            </dependency>
+
+
+
+
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger2</artifactId>
+                <version>${swagger.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger-ui</artifactId>
+                <version>${swagger.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-test</artifactId>
+                <version>${spring.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.mockito</groupId>
+                <artifactId>mockito-all</artifactId>
+                <version>${mockito.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junit.version}</version>
+            </dependency>
+
+
+        </dependencies>
+    </dependencyManagement>
+
+
+
+    <profiles>
+        <profile>
+            <id>local</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <env>local</env>
+            </properties>
+        </profile>
+    </profiles>
+
+
+
+    <build>
+        <finalName>${project.artifactId}</finalName>
+        <defaultGoal>install</defaultGoal>
+        <resources>
+            <resource>
+                <directory>${project.basedir}/src/main/resources</directory>
+                <filtering>true</filtering>
+                <excludes>
+                    <exclude>filter/*.properties</exclude>
+                    <exclude>static/**</exclude>
+                    <exclude>jna/**</exclude>
+                    <exclude>keystore/**</exclude>
+                </excludes>
+            </resource>
+            <resource>
+                <directory>${project.basedir}/src/main/resources</directory>
+                <filtering>false</filtering>
+                <includes>
+                    <include>static/**</include>
+                    <include>jna/**</include>
+                    <include>keystore/**</include>
+                </includes>
+            </resource>
+        </resources>
+
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <version>${spring.version}</version>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>repackage</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-release-plugin</artifactId>
+                    <version>${maven.release.version}</version>
+                    <configuration>
+                        <autoVersionSubmodules>true</autoVersionSubmodules>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>${maven.compiler.version}</version>
+                    <configuration>
+                        <encoding>${project.build.sourceEncoding}</encoding>
+                        <source>${maven.compiler.source}</source>
+                        <target>${maven.compiler.target}</target>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-install-plugin</artifactId>
+                    <version>${maven.install.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-deploy-plugin</artifactId>
+                    <version>${maven.deploy.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-source-plugin</artifactId>
+                    <version>${maven.sourcce.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>${maven-surefire-plugin}</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <forkMode>once</forkMode>
+                    <argLine>-Dfile.encoding=UTF-8</argLine>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
+
