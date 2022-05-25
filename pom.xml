@@ -12,6 +12,7 @@
 
     <modules>
         <module>agent</module>
+        <module>agentUse</module>
     </modules>
 
 

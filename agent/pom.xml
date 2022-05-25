@@ -13,4 +13,27 @@
     <artifactId>agent</artifactId>
 
 
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>2.3.1</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                        </manifest>
+                        <manifestEntries>
+                            <Premain-Class>com.demo.wenc.agent.agent.TestAgent</Premain-Class>
+                            <Agent-Class>com.demo.wenc.agent.agent.TestAgent</Agent-Class>
+                            <Can-Redefind-Classes>true</Can-Redefind-Classes>
+                            <Can-Retransform-Classes>true</Can-Retransform-Classes>
+                        </manifestEntries>
+                    </archive>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>
